@@ -11,8 +11,8 @@ namespace ShapeTest
         [TestMethod]
         public void BasicShapePerimitterTest()
         {
-            basicShape basicShape = new basicShape(4, 20);
-            double perimitterExpected = 80;
+            basicShape basicShape = new basicShape(20);
+            double perimitterExpected = 40;
             double perimitterActual = basicShape.Perimitter();
 
             Assert.AreEqual(perimitterExpected, perimitterActual);
@@ -21,8 +21,8 @@ namespace ShapeTest
         [TestMethod]
         public void BasicShapeAreaTest()
         {
-            basicShape basicShape = new basicShape(4, 20);
-            double perimitterExpected = 80;
+            basicShape basicShape = new basicShape(20);
+            double perimitterExpected = 40;
             double perimitterActual = basicShape.Area();
 
             Assert.AreEqual(perimitterExpected, perimitterActual);
@@ -69,6 +69,25 @@ namespace ShapeTest
 
             Assert.AreEqual(areaExpected, areaActual);
 
+        }
+        [TestMethod]
+        public void CirclePerimitterTest()
+        {
+            Circle circleShape = new Circle(20);
+            double perimitterExpected = 125.66;
+            double perimitterActual = circleShape.Perimitter();
+
+            Assert.AreEqual(perimitterExpected, perimitterActual);
+        }
+
+        [TestMethod]
+        public void CircleAreaTest()
+        {
+            Circle circleShape = new Circle(20);
+            double areaExpected = 1256.61;
+            double areaActual = circleShape.Area();
+
+            Assert.AreEqual(areaExpected, areaActual, 0.05);
         }
     }
 }

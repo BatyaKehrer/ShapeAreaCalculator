@@ -9,20 +9,20 @@ namespace Shape
     public class basicShape
     {
         public virtual double sideNum { get; protected set; }
-        public double sideLength {  get; set; }
+        public double sideLength { get; set; }
 
         public basicShape()
         {
-            sideNum = 0;
+            sideNum = 2;
             sideLength = 0;
         }
 
-        public basicShape(double sideNum, double sideLength)
+        public basicShape(double sideLength)
         {
-            this.sideNum = sideNum;
+            this.sideNum = 2;
             this.sideLength = sideLength;
         }
-        public double Perimitter ()
+        public virtual double Perimitter()
         {
             return sideLength * sideNum;
         }
@@ -57,7 +57,7 @@ namespace Shape
 
     }
 
-    public class Square: basicShape
+    public class Square : basicShape
     {
         public Square()
         {
@@ -76,5 +76,30 @@ namespace Shape
             return sideLength * sideLength;
         }
     }
-    
+
+    public class Circle : basicShape
+    {
+        public Circle()
+        {
+            sideNum = 1;
+            sideLength = 0;
+        }
+
+        public Circle (double sideLength)
+        {
+            sideNum = 1;
+            this.sideLength = sideLength;
+        }
+
+        public override double Perimitter()
+        {
+            return Math.Round(sideLength * 2 * double.Pi, 2);
+        }
+        public override double Area()
+        {
+            return Math.Round(Math.Pow(sideLength, 2) * double.Pi, 2);
+        }
+
+    }
+
 }
